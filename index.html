@@ -1,46 +1,767 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Infy App Challenge</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Talking Clean</title>
+
+  <!-- Bootstrap -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Darumadrop+One&family=Jua&display=swap" rel="stylesheet">
+
+  <style>
+
+    :root{
+      --brown:#6D4C41;
+      --yellow:#FBC02D;
+      --cream:#F5F7F4;
+      --blue:#4FC3F7;
+      --lightgreen:#7FD18C;
+      --green:#2E7D32;
+      --forest:#2B532D;
+
+      --title-fill:#2E7439;
+      --title-outline:#7FD18C;
+    }
+
+    *{
+      box-sizing:border-box;
+    }
+
+    body{
+      margin:0;
+      overflow-x:hidden;
+
+      background:var(--cream);
+
+      font-family:'Jua', sans-serif;
+
+      letter-spacing:0.08em;
+
+      color:var(--blue);
+
+      background-image:
+      radial-gradient(circle at top left, rgba(127,209,140,0.18), transparent 30%),
+      radial-gradient(circle at bottom right, rgba(79,195,247,0.15), transparent 30%);
+    }
+
+    /* NAVBAR */
+
+    .navbar{
+      background:var(--forest);
+
+      border-bottom:6px solid var(--lightgreen);
+
+      padding:18px 0;
+
+      box-shadow:0 5px 0 rgba(0,0,0,0.08);
+    }
+
+    .navbar-brand{
+      font-family:'Darumadrop One', cursive;
+
+      color:white !important;
+
+      font-size:2rem;
+
+      letter-spacing:0.04em;
+    }
+
+    /* HERO */
+
+    .hero{
+      position:relative;
+
+      margin-top:40px;
+
+      padding:100px 40px;
+
+      border-radius:45px;
+
+      overflow:hidden;
+
+      border:7px solid var(--forest);
+
+      background:
+      linear-gradient(
+      rgba(255,255,255,0.25),
+      rgba(255,255,255,0.25)
+      ),
+
+      linear-gradient(
+      180deg,
+      #9ee7aa,
+      #76c6f2
+      );
+
+      box-shadow:
+      0 14px 0 rgba(46,125,50,0.18),
+      0 20px 35px rgba(0,0,0,0.08);
+    }
+
+    .hero::before{
+      content:"🌲";
+      position:absolute;
+      top:20px;
+      left:20px;
+      font-size:120px;
+      opacity:0.12;
+      transform:rotate(-8deg);
+    }
+
+    .hero::after{
+      content:"🦆";
+      position:absolute;
+      bottom:15px;
+      right:30px;
+      font-size:100px;
+      opacity:0.12;
+      transform:rotate(8deg);
+    }
+
+    h1{
+      font-family:'Darumadrop One', cursive;
+
+      color:var(--title-fill);
+
+      font-size:6rem;
+
+      text-align:center;
+
+      line-height:1;
+
+      -webkit-text-stroke:5px var(--title-outline);
+
+      text-shadow:
+      0 6px 0 rgba(0,0,0,0.08);
+    }
+
+    .tagline{
+      text-align:center;
+
+      font-size:1.25rem;
+
+      color:var(--brown);
+
+      margin-top:20px;
+    }
+
+    .play-btn{
+      background:var(--yellow);
+
+      color:var(--forest);
+
+      border:none;
+
+      border-radius:999px;
+
+      padding:16px 38px;
+
+      margin-top:25px;
+
+      font-size:1rem;
+
+      border:4px solid var(--forest);
+
+      box-shadow:
+      0 6px 0 #c69600;
+
+      transition:0.2s ease;
+    }
+
+    .play-btn:hover{
+      transform:translateY(3px);
+
+      box-shadow:
+      0 2px 0 #c69600;
+    }
+
+    /* CARDS */
+
+    .game-card{
+      background:white;
+
+      border:6px solid var(--forest);
+
+      border-radius:35px;
+
+      padding:35px;
+
+      margin-top:35px;
+
+      box-shadow:
+      0 10px 0 rgba(46,125,50,0.18);
+    }
+
+    .section-title{
+      font-family:'Darumadrop One', cursive;
+
+      color:var(--title-fill);
+
+      font-size:2.7rem;
+
+      -webkit-text-stroke:2px var(--title-outline);
+
+      margin-bottom:22px;
+    }
+
+    p,
+    li{
+      line-height:1.9;
+      font-size:1rem;
+    }
+
+    ul{
+      padding-left:20px;
+    }
+
+    li{
+      margin-bottom:15px;
+    }
+
+    /* CHARACTER SECTION */
+
+    .character-box{
+      background:
+      linear-gradient(
+      135deg,
+      rgba(127,209,140,0.2),
+      rgba(79,195,247,0.2)
+      );
+
+      border:6px dashed var(--forest);
+
+      border-radius:35px;
+
+      padding:45px;
+
+      margin-top:35px;
+
+      text-align:center;
+    }
+
+    .character-pill{
+      display:inline-block;
+
+      background:var(--yellow);
+
+      border:4px solid var(--forest);
+
+      color:var(--forest);
+
+      border-radius:999px;
+
+      padding:14px 24px;
+
+      margin:10px;
+
+      box-shadow:
+      0 5px 0 #c69600;
+    }
+
+    /* TEAM */
+
+    .dev-card{
+      background:
+      linear-gradient(
+      180deg,
+      rgba(255,255,255,0.95),
+      rgba(127,209,140,0.15)
+      );
+
+      border:5px solid var(--forest);
+
+      border-radius:30px;
+
+      padding:25px 20px;
+
+      height:100%;
+
+      box-shadow:
+      0 10px 0 rgba(46,125,50,0.18);
+
+      transition:0.25s ease;
+    }
+
+    .dev-card:hover{
+      transform:translateY(-6px);
+    }
+
+    .dev-photo{
+      width:140px;
+      height:140px;
+
+      object-fit:cover;
+
+      border-radius:50%;
+
+      border:6px solid var(--lightgreen);
+
+      margin-bottom:18px;
+
+      box-shadow:
+      0 6px 0 rgba(46,125,50,0.25);
+    }
+
+    .dev-name{
+      font-family:'Darumadrop One', cursive;
+
+      color:var(--title-fill);
+
+      font-size:2rem;
+
+      -webkit-text-stroke:1.5px var(--title-outline);
+    }
+
+    .dev-role{
+      color:var(--brown);
+
+      margin-bottom:18px;
+    }
+
+    .portfolio-btn{
+      display:inline-block;
+
+      text-decoration:none;
+
+      background:var(--yellow);
+
+      color:var(--forest);
+
+      border:4px solid var(--forest);
+
+      border-radius:999px;
+
+      padding:12px 22px;
+
+      box-shadow:
+      0 5px 0 #c69600;
+
+      transition:0.2s ease;
+    }
+
+    .portfolio-btn:hover{
+      color:var(--forest);
+
+      transform:translateY(3px);
+
+      box-shadow:
+      0 2px 0 #c69600;
+    }
+
+    /* EMBEDS */
+
+    iframe,
+    video{
+      width:100%;
+
+      border:none;
+
+      border-radius:25px;
+
+      overflow:hidden;
+
+      box-shadow:
+      0 10px 20px rgba(0,0,0,0.08);
+    }
+
+    /* FOOTER */
+
+    .footer{
+      text-align:center;
+
+      padding:50px 20px;
+
+      color:var(--brown);
+    }
+
+    /* FLOATING DECOR */
+
+    .leaf{
+      position:fixed;
+      opacity:0.12;
+      z-index:-1;
+      pointer-events:none;
+    }
+
+    .leaf1{
+      top:15%;
+      left:5%;
+      font-size:50px;
+      transform:rotate(-10deg);
+    }
+
+    .leaf2{
+      bottom:12%;
+      right:5%;
+      font-size:55px;
+      transform:rotate(12deg);
+    }
+
+    .leaf3{
+      top:65%;
+      left:8%;
+      font-size:40px;
+    }
+
+    /* MOBILE */
+
+    @media(max-width:768px){
+
+      h1{
+        font-size:4rem;
+      }
+
+      .section-title{
+        font-size:2rem;
+      }
+
+      .hero{
+        padding:80px 25px;
+      }
+
+    }
+
+  </style>
 </head>
-<body class="bg-light">
-  <nav class="navbar navbar-dark bg-dark mb-4">
-    <div class="container-fluid">
-      <span class="navbar-brand mb-0 h1">Infy App Challenge Showcase</span>
+
+<body>
+
+  <!-- FLOATING DECOR -->
+
+  <div class="leaf leaf1">🌿</div>
+  <div class="leaf leaf2">🍃</div>
+  <div class="leaf leaf3">🌱</div>
+
+  <!-- NAVBAR -->
+
+  <nav class="navbar navbar-dark">
+    <div class="container">
+      <span class="navbar-brand">
+        🌎 Talking Clean
+      </span>
     </div>
   </nav>
 
-  <div class="container text-center">
-    <h1 class="mb-3">🌟 App Title Here</h1>
-    <p><em>"Insert your catchy tagline or quote here..."</em></p>
+  <div class="container pb-5">
 
-    <hr>
+    <!-- HERO -->
 
-    <h3>🎯 Pitch</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vitae.</p>
+    <div class="hero text-center">
 
-    <h3>🌍 Theme Implementation</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac metus vel sapien viverra pulvinar.</p>
+      <h1>
+        Talking Clean
+      </h1>
 
-    <h3>🧠 Why We Built This</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel gravida sapien.</p>
+      <p class="tagline">
+        "Insert tagline here..."
+      </p>
 
-    <hr>
+      <button class="play-btn">
+        ▶ PLAY NOW
+      </button>
 
-    <h3>📽️ Slide Deck</h3>
-    <iframe src="https://docs.google.com/presentation/d/e/2PACX-FAKE-GOOGLE-SLIDE/embed?start=false&loop=false&delayms=3000" width="100%" height="480" frameborder="0" allowfullscreen></iframe>
+    </div>
 
-    <h3 class="mt-4">📱 Figma Prototype</h3>
-    <iframe style="border:1px solid #ccc" width="100%" height="600" src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/proto/FAKE-PROTOTYPE" allowfullscreen></iframe>
+    <!-- PITCH -->
 
-    <h3 class="mt-4">🎥 Demo Video (optional)</h3>
-    <video width="80%" controls>
-      <source src="demo.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
+    <div class="game-card">
+
+      <h2 class="section-title">
+        🎯 Pitch
+      </h2>
+
+      <p>
+        Insert pitch paragraph here...
+      </p>
+
+    </div>
+
+    <!-- THEME IMPLEMENTATION -->
+
+    <div class="game-card">
+
+      <h2 class="section-title">
+        🌿 Theme Implementation
+      </h2>
+
+      <ul>
+
+        <li>
+          <strong>Earthy color palette + accents:</strong>
+          We used greens and browns to match the land/pollution theme,
+          with blue and yellow accent colors to create contrast and
+          highlight important buttons and features.
+        </li>
+
+        <li>
+          <strong>Consistent font choices:</strong>
+          A bubbly title font makes the game feel fun and inviting,
+          while a readable bubbly font keeps the rest of the text
+          clear but still matches the vibe.
+        </li>
+
+        <li>
+          <strong>Simple layout + clear navigation:</strong>
+          The game starts with a title screen and play button,
+          then transitions smoothly into gameplay.
+        </li>
+
+        <li>
+          <strong>Pop-up task windows:</strong>
+          Tasks appear inside centered pop-up windows
+          with clear instructions and easy options.
+        </li>
+
+        <li>
+          <strong>Minimal UI during gameplay:</strong>
+          UI elements stay tucked into corners so gameplay
+          remains the main focus.
+        </li>
+
+        <li>
+          <strong>Accessible button design:</strong>
+          Buttons are large, rounded, and easy to tap.
+        </li>
+
+      </ul>
+
+    </div>
+
+    <!-- WHY -->
+
+    <div class="game-card">
+
+      <h2 class="section-title">
+        🧠 Why We Built This
+      </h2>
+
+      <p>
+        Insert why-we-built-this paragraph here...
+      </p>
+
+    </div>
+
+    <!-- CHARACTERS -->
+
+    <div class="character-box">
+
+      <h2 class="section-title">
+        🎮 Meet the Characters
+      </h2>
+
+      <div class="character-pill">
+        🧍 Moobie
+      </div>
+
+      <div class="character-pill">
+        🦆 Sir Quacks a Lot
+      </div>
+
+      <p class="mt-4">
+        Moobie explores the environment cleaning litter while
+        Sir Quacks a Lot guides players through eco-friendly
+        missions and tasks.
+      </p>
+
+    </div>
+
+    <!-- TEAM -->
+
+    <div class="game-card text-center">
+
+      <h2 class="section-title">
+        👩‍💻 Meet the Team
+      </h2>
+
+      <p class="mb-4">
+        The creators behind <strong>Talking Clean</strong>
+      </p>
+
+      <div class="row g-4 justify-content-center">
+
+        <!-- ARMA -->
+
+        <div class="col-lg-3 col-md-6">
+
+          <div class="dev-card">
+
+            <img
+              src="images/arma.jpg"
+              alt="Arma"
+              class="dev-photo"
+            >
+
+            <h3 class="dev-name">
+              Arma
+            </h3>
+
+            <p class="dev-role">
+              Project Manager
+            </p>
+
+            <a href="#" class="portfolio-btn" target="_blank">
+              🌐 Portfolio
+            </a>
+
+          </div>
+
+        </div>
+
+        <!-- MIA -->
+
+        <div class="col-lg-3 col-md-6">
+
+          <div class="dev-card">
+
+            <img
+              src="images/mia.jpg"
+              alt="Mia"
+              class="dev-photo"
+            >
+
+            <h3 class="dev-name">
+              Mia
+            </h3>
+
+            <p class="dev-role">
+              UI Lead
+            </p>
+
+            <a href="#" class="portfolio-btn" target="_blank">
+              🌐 Portfolio
+            </a>
+
+          </div>
+
+        </div>
+
+        <!-- FARZANA -->
+
+        <div class="col-lg-3 col-md-6">
+
+          <div class="dev-card">
+
+            <img
+              src="images/farzana.jpg"
+              alt="Farzana"
+              class="dev-photo"
+            >
+
+            <h3 class="dev-name">
+              Farzana
+            </h3>
+
+            <p class="dev-role">
+              UX Lead
+            </p>
+
+            <a href="#" class="portfolio-btn" target="_blank">
+              🌐 Portfolio
+            </a>
+
+          </div>
+
+        </div>
+
+        <!-- SAIMA -->
+
+        <div class="col-lg-3 col-md-6">
+
+          <div class="dev-card">
+
+            <img
+              src="images/saima.jpg"
+              alt="Saima"
+              class="dev-photo"
+            >
+
+            <h3 class="dev-name">
+              Saima
+            </h3>
+
+            <p class="dev-role">
+              Content Lead
+            </p>
+
+            <a href="#" class="portfolio-btn" target="_blank">
+              🌐 Portfolio
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- SLIDE DECK -->
+
+    <div class="game-card">
+
+      <h2 class="section-title">
+        📽️ Slide Deck
+      </h2>
+
+      <!-- INSERT GOOGLE SLIDES EMBED LINK -->
+
+      <iframe
+        src=""
+        height="500"
+        allowfullscreen>
+      </iframe>
+
+    </div>
+
+    <!-- FIGMA -->
+
+    <div class="game-card">
+
+      <h2 class="section-title">
+        📱 Figma Prototype
+      </h2>
+
+      <!-- INSERT FIGMA LINK -->
+
+      <iframe
+        src=""
+        height="650"
+        allowfullscreen>
+      </iframe>
+
+    </div>
+
+    <!-- VIDEO -->
+
+    <div class="game-card text-center">
+
+      <h2 class="section-title">
+        🎥 Demo Video
+      </h2>
+
+      <video controls>
+        <source src="placeholder.mp4" type="video/mp4">
+      </video>
+
+    </div>
+
+    <!-- FOOTER -->
+
+    <div class="footer">
+      Made with 🌱 for the Infy App Challenge
+    </div>
+
   </div>
+
 </body>
 </html>
