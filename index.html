@@ -23,8 +23,8 @@
   --blue-outline:#2f9dd0;
   --lightgreen:#7FD18C;
   --green:#2E7D32;
-  --forest:#2B532D;
   --title:#2E7439;
+  --forest:#2B532D;
 }
 
 *{
@@ -35,333 +35,223 @@ body{
   margin:0;
   overflow-x:hidden;
   background:var(--cream);
+
   font-family:'Jua', sans-serif;
-  letter-spacing:.03em;
-  color:var(--blue);
-  font-size:1.15rem;
+
+  font-size:1.25rem;
   line-height:2;
-  text-shadow:
-  -1px 0 var(--blue-outline),
-  0 1px var(--blue-outline),
-  1px 0 var(--blue-outline),
-  0 -1px var(--blue-outline);
+
+  color:var(--blue);
+
+  -webkit-text-stroke:0.7px var(--blue-outline);
+
+  background-image:
+  radial-gradient(circle at 15% 20%, rgba(127,209,140,.25), transparent 35%),
+  radial-gradient(circle at 80% 10%, rgba(79,195,247,.18), transparent 30%),
+  radial-gradient(circle at 60% 85%, rgba(251,192,45,.12), transparent 35%);
 }
 
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  background-image:
-  radial-gradient(circle at 10% 10%, rgba(127,209,140,.2), transparent 30%),
-  radial-gradient(circle at 90% 20%, rgba(79,195,247,.15), transparent 30%),
-  radial-gradient(circle at 70% 90%, rgba(251,192,45,.12), transparent 35%);
-  z-index:-2;
-}
+/* NAV */
 
 .navbar{
   background:var(--forest);
   border-bottom:8px solid var(--lightgreen);
-  padding:18px 0;
-  box-shadow:0 6px 0 rgba(0,0,0,.1);
 }
 
 .navbar-brand{
   font-family:'Darumadrop One', cursive;
   font-size:2.3rem;
   color:white !important;
-  letter-spacing:.04em;
 }
 
+/* HERO */
+
 .hero{
-  position:relative;
   margin-top:40px;
-  border-radius:50px;
   padding:110px 40px;
-  overflow:hidden;
+  border-radius:50px;
   border:8px solid var(--forest);
 
   background:
-  linear-gradient(
-  rgba(255,255,255,.15),
-  rgba(255,255,255,.15)
-  ),
+  linear-gradient(180deg, #a8e6b3, #79c8f0);
 
-  linear-gradient(
-  180deg,
-  #9ce4a8 0%,
-  #79c8f0 100%
-  );
+  position:relative;
 
-  box-shadow:
-  0 16px 0 rgba(46,125,50,.18),
-  0 25px 40px rgba(0,0,0,.08);
+  box-shadow:0 18px 0 rgba(46,125,50,.2);
 }
 
 .hero::before{
   content:"🌲";
   position:absolute;
-  left:30px;
   top:20px;
-  font-size:140px;
+  left:25px;
+  font-size:130px;
   opacity:.15;
-  transform:rotate(-8deg);
 }
 
 .hero::after{
   content:"🦆";
   position:absolute;
-  right:30px;
   bottom:10px;
-  font-size:120px;
+  right:25px;
+  font-size:110px;
   opacity:.15;
-  transform:rotate(10deg);
 }
 
-.title-wrap{
+.title{
   position:relative;
   display:inline-block;
 }
 
 .title-outline{
   position:absolute;
-  inset:0;
+  top:6px;
+  left:6px;
   font-family:'Darumadrop One', cursive;
   font-size:7rem;
   color:var(--lightgreen);
   z-index:1;
-  transform:translate(6px,6px);
 }
 
-.main-title{
+.title-main{
   position:relative;
-  z-index:2;
   font-family:'Darumadrop One', cursive;
   font-size:7rem;
   color:var(--title);
-  line-height:1;
-}
-
-.tagline{
-  margin-top:25px;
-  color:var(--brown);
-  font-size:1.4rem;
-}
-
-.game-card{
-  position:relative;
-  margin-top:40px;
-  background:white;
-  border-radius:40px;
-  border:7px solid var(--forest);
-  padding:40px;
-  box-shadow:
-  0 12px 0 rgba(46,125,50,.18);
-}
-
-.game-card::before{
-  content:"";
-  position:absolute;
-  inset:12px;
-  border:3px dashed rgba(127,209,140,.5);
-  border-radius:28px;
-  pointer-events:none;
-}
-
-.section-title{
-  font-family:'Darumadrop One', cursive;
-  font-size:3rem;
-  color:var(--title);
-  margin-bottom:25px;
-  position:relative;
-  display:inline-block;
-}
-
-.section-title::before{
-  content:attr(data-text);
-  position:absolute;
-  left:4px;
-  top:4px;
-  color:var(--lightgreen);
-  z-index:-1;
-}
-
-p,
-li{
-  position:relative;
   z-index:2;
 }
 
-ul{
-  padding-left:22px;
-}
+/* SECTIONS */
 
-li{
-  margin-bottom:18px;
-}
-
-.character-box{
+.section{
   margin-top:40px;
+  background:white;
+  border:7px solid var(--forest);
   border-radius:40px;
-  padding:50px 40px;
+  padding:40px;
+  position:relative;
+  box-shadow:0 12px 0 rgba(46,125,50,.18);
+}
 
-  background:
-  linear-gradient(
-  135deg,
-  rgba(127,209,140,.2),
-  rgba(79,195,247,.18)
-  );
+.section::before{
+  content:"";
+  position:absolute;
+  inset:10px;
+  border:3px dashed rgba(127,209,140,.6);
+  border-radius:30px;
+  pointer-events:none;
+}
 
+/* HEADERS */
+
+.h-wrap{
+  position:relative;
+  display:inline-block;
+  margin-bottom:20px;
+}
+
+.h-outline{
+  position:absolute;
+  top:4px;
+  left:4px;
+  font-family:'Darumadrop One', cursive;
+  font-size:2.8rem;
+  color:var(--lightgreen);
+  z-index:1;
+}
+
+.h-main{
+  position:relative;
+  font-family:'Darumadrop One', cursive;
+  font-size:2.8rem;
+  color:var(--title);
+  z-index:2;
+}
+
+/* TEXT */
+
+p, li{
+  font-size:1.25rem;
+  line-height:2;
+}
+
+/* CHARACTERS */
+
+.characters{
+  margin-top:40px;
+  padding:50px;
+  border-radius:40px;
   border:7px dashed var(--forest);
-
+  background:linear-gradient(135deg, rgba(127,209,140,.2), rgba(79,195,247,.18));
   text-align:center;
 }
 
-.character-pill{
+.badge{
   display:inline-block;
   background:var(--yellow);
-  color:var(--forest);
-  border-radius:999px;
   border:4px solid var(--forest);
-  padding:15px 28px;
-  margin:12px;
-  font-size:1.1rem;
-
-  box-shadow:
-  0 6px 0 #c69600;
+  padding:14px 25px;
+  border-radius:999px;
+  margin:10px;
+  font-weight:bold;
 }
+
+/* TEAM */
 
 .team-grid{
   margin-top:20px;
 }
 
-.dev-card{
-  background:
-  linear-gradient(
-  180deg,
-  rgba(255,255,255,.95),
-  rgba(127,209,140,.12)
-  );
-
-  border-radius:35px;
+.dev{
+  background:linear-gradient(180deg, #fff, rgba(127,209,140,.15));
   border:6px solid var(--forest);
-  padding:28px 20px;
+  border-radius:35px;
+  padding:25px;
   height:100%;
-
-  box-shadow:
-  0 10px 0 rgba(46,125,50,.18);
-
-  transition:.25s ease;
+  box-shadow:0 10px 0 rgba(46,125,50,.18);
 }
 
-.dev-card:hover{
-  transform:translateY(-6px) rotate(-1deg);
-}
-
-.dev-photo{
-  width:150px;
-  height:150px;
+.dev img{
+  width:140px;
+  height:140px;
   object-fit:cover;
   border-radius:50%;
-  border:7px solid var(--lightgreen);
-
-  box-shadow:
-  0 7px 0 rgba(46,125,50,.2);
-
-  margin-bottom:18px;
+  border:6px solid var(--lightgreen);
+  margin-bottom:15px;
 }
 
-.dev-name{
+.dev h3{
   font-family:'Darumadrop One', cursive;
-  font-size:2.3rem;
   color:var(--title);
-  margin-bottom:6px;
 }
 
-.dev-role{
-  color:var(--brown);
-  margin-bottom:20px;
-}
-
-.portfolio-btn{
+.btn-port{
   display:inline-block;
-  text-decoration:none;
+  margin-top:10px;
+  padding:10px 20px;
   background:var(--yellow);
-  color:var(--forest);
-  border-radius:999px;
   border:4px solid var(--forest);
-  padding:12px 24px;
-
-  box-shadow:
-  0 5px 0 #c69600;
-
-  transition:.2s ease;
-}
-
-.portfolio-btn:hover{
+  border-radius:999px;
+  text-decoration:none;
   color:var(--forest);
-  transform:translateY(3px);
-
-  box-shadow:
-  0 2px 0 #c69600;
+  box-shadow:0 5px 0 #c69600;
 }
 
-iframe,
-video{
+/* EMBEDS */
+
+iframe, video{
   width:100%;
-  border:none;
   border-radius:30px;
-  overflow:hidden;
-
-  box-shadow:
-  0 12px 24px rgba(0,0,0,.08);
+  border:none;
+  box-shadow:0 10px 20px rgba(0,0,0,.08);
 }
 
-.footer{
+/* FOOTER */
+
+footer{
   text-align:center;
   padding:60px 20px;
   color:var(--brown);
-  font-size:1rem;
-}
-
-.floating-tree{
-  position:fixed;
-  left:2%;
-  bottom:8%;
-  font-size:80px;
-  opacity:.08;
-  z-index:-1;
-  transform:rotate(-6deg);
-}
-
-.floating-leaf{
-  position:fixed;
-  right:3%;
-  top:25%;
-  font-size:70px;
-  opacity:.08;
-  z-index:-1;
-  transform:rotate(10deg);
-}
-
-@media(max-width:768px){
-
-  .title-outline,
-  .main-title{
-    font-size:4.5rem;
-  }
-
-  .section-title{
-    font-size:2.2rem;
-  }
-
-  body{
-    font-size:1rem;
-  }
-
-  .hero{
-    padding:90px 25px;
-  }
-
 }
 
 </style>
@@ -369,14 +259,9 @@ video{
 
 <body>
 
-<div class="floating-tree">🌲</div>
-<div class="floating-leaf">🍃</div>
-
 <nav class="navbar navbar-dark">
   <div class="container">
-    <span class="navbar-brand">
-      🌎 Talking Clean
-    </span>
+    <span class="navbar-brand">🌎 Talking Clean</span>
   </div>
 </nav>
 
@@ -384,279 +269,158 @@ video{
 
   <div class="hero text-center">
 
-    <div class="title-wrap">
-
-      <div class="title-outline">
-        Talking Clean
-      </div>
-
-      <div class="main-title">
-        Talking Clean
-      </div>
-
+    <div class="title">
+      <div class="title-outline">Talking Clean</div>
+      <div class="title-main">Talking Clean</div>
     </div>
 
-    <p class="tagline">
-      "Insert tagline here..."
-    </p>
+    <p>Insert tagline here...</p>
 
   </div>
 
-  <div class="game-card">
+  <div class="section">
 
-    <h2 class="section-title" data-text="🎯 Pitch">
-      🎯 Pitch
-    </h2>
+    <div class="h-wrap">
+      <div class="h-outline">🎯 Pitch</div>
+      <div class="h-main">🎯 Pitch</div>
+    </div>
 
-    <p>
-      Insert pitch paragraph here...
-    </p>
+    <p>Insert pitch paragraph...</p>
 
   </div>
 
-  <div class="game-card">
+  <div class="section">
 
-    <h2 class="section-title" data-text="🌿 Theme Implementation">
-      🌿 Theme Implementation
-    </h2>
+    <div class="h-wrap">
+      <div class="h-outline">🌿 Theme Implementation</div>
+      <div class="h-main">🌿 Theme Implementation</div>
+    </div>
 
     <ul>
-
-      <li>
-        <strong>Earthy color palette + accents:</strong>
-        We used greens and browns to match the land and pollution theme,
-        while blue and yellow accent colors highlight important buttons,
-        interactions, and gameplay moments.
-      </li>
-
-      <li>
-        <strong>Consistent font choices:</strong>
-        A bubbly title font creates a fun and inviting atmosphere while
-        the readable rounded body font keeps everything accessible
-        without losing the playful vibe.
-      </li>
-
-      <li>
-        <strong>Simple layout + clear navigation:</strong>
-        The experience moves smoothly from title screen to gameplay,
-        keeping interactions easy and intuitive.
-      </li>
-
-      <li>
-        <strong>Pop-up task windows:</strong>
-        Tasks appear in centered windows with clear instructions
-        and easy navigation options.
-      </li>
-
-      <li>
-        <strong>Minimal gameplay UI:</strong>
-        Interface elements stay tucked into corners so exploration
-        and the environment remain the main focus.
-      </li>
-
-      <li>
-        <strong>Accessible buttons:</strong>
-        Large rounded buttons make interactions simple,
-        readable, and touch friendly.
-      </li>
-
+      <li>Earthy palette with green/brown base and blue/yellow accents for clarity and contrast.</li>
+      <li>Bubbly title font + readable rounded body font for playful but clear experience.</li>
+      <li>Simple navigation flow from title screen into gameplay.</li>
+      <li>Pop-up task windows for clean instructions and focus.</li>
+      <li>Minimal UI so gameplay and environment stay central.</li>
+      <li>Large, accessible buttons for easy interaction.</li>
     </ul>
 
   </div>
 
-  <div class="game-card">
+  <div class="section">
 
-    <h2 class="section-title" data-text="🧠 Why We Built This">
-      🧠 Why We Built This
-    </h2>
+    <div class="h-wrap">
+      <div class="h-outline">🧠 Why We Built This</div>
+      <div class="h-main">🧠 Why We Built This</div>
+    </div>
 
-    <p>
-      Insert why-we-built-this paragraph here...
-    </p>
+    <p>Insert why paragraph...</p>
 
   </div>
 
-  <div class="character-box">
+  <div class="characters">
 
-    <h2 class="section-title" data-text="🎮 Meet the Characters">
-      🎮 Meet the Characters
-    </h2>
-
-    <div class="character-pill">
-      🧍 Moobie
+    <div class="h-wrap">
+      <div class="h-outline">🎮 Characters</div>
+      <div class="h-main">🎮 Characters</div>
     </div>
 
-    <div class="character-pill">
-      🦆 Sir Quacks a Lot
+    <div>
+      <span class="badge">Moobie</span>
+      <span class="badge">Sir Quacks a Lot</span>
     </div>
 
-    <p class="mt-4">
-      Moobie explores the environment cleaning litter while
-      Sir Quacks a Lot helps guide players through eco-friendly
-      missions, tasks, and helpful reminders.
-    </p>
+    <p>Moobie explores and cleans while Sir Quacks a Lot guides missions.</p>
 
   </div>
 
-  <div class="game-card text-center">
+  <div class="section">
 
-    <h2 class="section-title" data-text="👩‍💻 Meet the Team">
-      👩‍💻 Meet the Team
-    </h2>
+    <div class="h-wrap">
+      <div class="h-outline">👩‍💻 Team</div>
+      <div class="h-main">👩‍💻 Team</div>
+    </div>
 
-    <div class="row g-4 team-grid">
+    <div class="row team-grid g-4">
 
-      <div class="col-lg-3 col-md-6">
-
-        <div class="dev-card">
-
-          <img
-            src="images/arma.jpg"
-            alt="Arma"
-            class="dev-photo"
-          >
-
-          <div class="dev-name">
-            Arma
-          </div>
-
-          <div class="dev-role">
-            Project Manager
-          </div>
-
-          <a href="#" class="portfolio-btn">
-            🌐 Portfolio
-          </a>
-
+      <div class="col-md-3">
+        <div class="dev">
+          <img src="images/arma.jpg">
+          <h3>Arma</h3>
+          <p>Project Manager</p>
+          <a class="btn-port" href="#">Portfolio</a>
         </div>
-
       </div>
 
-      <div class="col-lg-3 col-md-6">
-
-        <div class="dev-card">
-
-          <img
-            src="images/mia.jpg"
-            alt="Mia"
-            class="dev-photo"
-          >
-
-          <div class="dev-name">
-            Mia
-          </div>
-
-          <div class="dev-role">
-            UI Lead
-          </div>
-
-          <a href="#" class="portfolio-btn">
-            🌐 Portfolio
-          </a>
-
+      <div class="col-md-3">
+        <div class="dev">
+          <img src="images/mia.jpg">
+          <h3>Mia</h3>
+          <p>UI Lead</p>
+          <a class="btn-port" href="#">Portfolio</a>
         </div>
-
       </div>
 
-      <div class="col-lg-3 col-md-6">
-
-        <div class="dev-card">
-
-          <img
-            src="images/farzana.jpg"
-            alt="Farzana"
-            class="dev-photo"
-          >
-
-          <div class="dev-name">
-            Farzana
-          </div>
-
-          <div class="dev-role">
-            UX Lead
-          </div>
-
-          <a href="#" class="portfolio-btn">
-            🌐 Portfolio
-          </a>
-
+      <div class="col-md-3">
+        <div class="dev">
+          <img src="images/farzana.jpg">
+          <h3>Farzana</h3>
+          <p>UX Lead</p>
+          <a class="btn-port" href="#">Portfolio</a>
         </div>
-
       </div>
 
-      <div class="col-lg-3 col-md-6">
-
-        <div class="dev-card">
-
-          <img
-            src="images/saima.jpg"
-            alt="Saima"
-            class="dev-photo"
-          >
-
-          <div class="dev-name">
-            Saima
-          </div>
-
-          <div class="dev-role">
-            Content Lead
-          </div>
-
-          <a href="#" class="portfolio-btn">
-            🌐 Portfolio
-          </a>
-
+      <div class="col-md-3">
+        <div class="dev">
+          <img src="images/saima.jpg">
+          <h3>Saima</h3>
+          <p>Content Lead</p>
+          <a class="btn-port" href="#">Portfolio</a>
         </div>
-
       </div>
 
     </div>
 
   </div>
 
-  <div class="game-card">
+  <div class="section">
 
-    <h2 class="section-title" data-text="📽️ Slide Deck">
-      📽️ Slide Deck
-    </h2>
+    <div class="h-wrap">
+      <div class="h-outline">📽️ Slide Deck</div>
+      <div class="h-main">📽️ Slide Deck</div>
+    </div>
 
-    <iframe
-      src=""
-      height="500"
-      allowfullscreen>
-    </iframe>
+    <iframe src="" height="500"></iframe>
 
   </div>
 
-  <div class="game-card">
+  <div class="section">
 
-    <h2 class="section-title" data-text="📱 Figma Prototype">
-      📱 Figma Prototype
-    </h2>
+    <div class="h-wrap">
+      <div class="h-outline">📱 Figma</div>
+      <div class="h-main">📱 Figma</div>
+    </div>
 
-    <iframe
-      src=""
-      height="650"
-      allowfullscreen>
-    </iframe>
+    <iframe src="" height="650"></iframe>
 
   </div>
 
-  <div class="game-card text-center">
+  <div class="section">
 
-    <h2 class="section-title" data-text="🎥 Demo Video">
-      🎥 Demo Video
-    </h2>
+    <div class="h-wrap">
+      <div class="h-outline">🎥 Demo</div>
+      <div class="h-main">🎥 Demo</div>
+    </div>
 
     <video controls>
-      <source src="placeholder.mp4" type="video/mp4">
+      <source src="placeholder.mp4">
     </video>
 
   </div>
 
-  <div class="footer">
+  <footer>
     Made with 🌱 for the Infy App Challenge
-  </div>
+  </footer>
 
 </div>
 
