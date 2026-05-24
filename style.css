@@ -8,10 +8,20 @@
   --yellow:#FBC02D;
 }
 
+*{
+  box-sizing:border-box;
+}
+
 body{
   margin:0;
   background:var(--cream);
-  font-family:'Jua', sans-serif;
+
+  font-family:
+    'Jua',
+    'Trebuchet MS',
+    sans-serif;
+
+  color:var(--forest);
 }
 
 /* NAV */
@@ -22,9 +32,13 @@ body{
 }
 
 .brand{
-  font-family:'Darumadrop One', cursive;
+  font-family:
+    'Darumadrop One',
+    'Trebuchet MS',
+    cursive;
+
   color:white;
-  font-size:2rem;
+  font-size:clamp(1.8rem,4vw,2.3rem);
 }
 
 /* HERO */
@@ -32,84 +46,161 @@ body{
 .hero{
   margin-top:40px;
   padding:90px 40px;
+
   border-radius:40px;
-  background:linear-gradient(180deg,#a8e6b3,#76c6f2);
+
+  background:
+    linear-gradient(
+      180deg,
+      #a8e6b3,
+      #76c6f2
+    );
+
   border:6px solid var(--forest);
+
   text-align:center;
 }
 
 h1{
-  font-family:'Darumadrop One', cursive;
-  font-size:6rem;
+  margin:0;
+
+  font-family:
+    'Darumadrop One',
+    'Trebuchet MS',
+    cursive;
+
+  font-size:clamp(3rem,10vw,6rem);
+
   color:var(--title);
-  -webkit-text-stroke:5px var(--lightgreen);
+
+  text-shadow:
+    0 4px 0 rgba(0,0,0,0.12);
 }
 
-/* CARDS */
+.tagline{
+  margin-top:20px;
 
-.card{
+  background:none;
+  color:var(--forest);
+
+  padding:0;
+
+  font-size:1.2rem;
+}
+
+/* CUSTOM CARDS */
+
+.info-card{
   margin-top:30px;
+
   padding:30px;
+
   border-radius:30px;
   border:6px solid var(--forest);
+
   background:white;
+
+  box-shadow:
+    0 8px 20px rgba(0,0,0,0.08);
 }
 
-/* FIXED HEADINGS (WORKS EVERYWHERE) */
+/* TITLES */
 
 .section-title-wrap{
   position:relative;
   display:inline-block;
-  margin-bottom:15px;
+  margin-bottom:20px;
 }
 
 .section-title-back{
   position:absolute;
+
   top:5px;
   left:5px;
-  font-family:'Darumadrop One', cursive;
-  font-size:2.5rem;
-  color:var(--lightgreen);
+
   z-index:0;
+
+  font-family:
+    'Darumadrop One',
+    'Trebuchet MS',
+    cursive;
+
+  font-size:clamp(1.8rem,4vw,2.5rem);
+
+  color:var(--lightgreen);
 }
 
 .section-title-front{
   position:relative;
-  font-family:'Darumadrop One', cursive;
-  font-size:2.5rem;
-  color:var(--title);
+
   z-index:1;
+
+  font-family:
+    'Darumadrop One',
+    'Trebuchet MS',
+    cursive;
+
+  font-size:clamp(1.8rem,4vw,2.5rem);
+
+  color:var(--title);
 }
 
-/* BODY TEXT (DARK BLUE BOX STYLE) */
+/* TEXT */
 
-p, li{
+p,
+li{
   background:var(--blue-dark);
+
   color:white;
-  padding:12px;
+
+  padding:12px 16px;
+
   border-radius:12px;
+
   margin-top:10px;
+
   line-height:1.8;
 }
 
-/* CHARACTERS */
+ul{
+  padding-left:20px;
+}
+
+/* CHARACTER SECTION */
 
 .character-box{
   margin-top:30px;
+
   padding:40px;
+
   border-radius:30px;
+
   border:6px dashed var(--forest);
-  background:linear-gradient(135deg,rgba(127,209,140,0.2),rgba(79,195,247,0.2));
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(127,209,140,0.2),
+      rgba(79,195,247,0.2)
+    );
+
   text-align:center;
 }
 
 .pill{
   display:inline-block;
+
   background:var(--yellow);
+
   border:4px solid var(--forest);
+
   padding:12px 20px;
+
   border-radius:999px;
+
   margin:8px;
+
+  font-size:1.1rem;
 }
 
 /* TEAM */
@@ -122,46 +213,109 @@ p, li{
 }
 
 .dev{
-  width:200px;
+  width:220px;
+
   padding:20px;
+
   border-radius:25px;
+
   border:6px solid var(--forest);
+
+  background:white;
+
   text-align:center;
-  background:#fff;
+
+  transition:0.2s ease;
+}
+
+.dev:hover{
+  transform:translateY(-4px);
 }
 
 .dev img{
   width:120px;
   height:120px;
-  border-radius:50%;
-  border:5px solid var(--lightgreen);
+
   object-fit:cover;
+
+  border-radius:50%;
+
+  border:5px solid var(--lightgreen);
 }
 
 .name{
-  font-family:'Darumadrop One', cursive;
+  margin-top:12px;
+
+  font-family:
+    'Darumadrop One',
+    'Trebuchet MS',
+    cursive;
+
   font-size:1.5rem;
 }
 
 .role{
+  margin-top:5px;
   color:#6D4C41;
 }
 
 .dev a{
   display:inline-block;
-  margin-top:10px;
-  background:var(--yellow);
+
+  margin-top:12px;
+
   padding:8px 14px;
+
   border-radius:999px;
+
   border:3px solid var(--forest);
+
+  background:var(--yellow);
+
   text-decoration:none;
+
   color:var(--forest);
+
+  transition:0.2s ease;
+}
+
+.dev a:hover{
+  transform:scale(1.05);
+}
+
+/* IFRAMES */
+
+iframe{
+  width:100%;
+  border:none;
+  border-radius:20px;
+  margin-top:10px;
 }
 
 /* FOOTER */
 
 .footer{
   text-align:center;
-  padding:50px;
+  padding:50px 20px;
   color:#6D4C41;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+  .hero{
+    padding:60px 20px;
+  }
+
+  .info-card,
+  .character-box{
+    padding:22px;
+  }
+
+  .dev{
+    width:100%;
+    max-width:300px;
+  }
+
 }
