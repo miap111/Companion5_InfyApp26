@@ -31,6 +31,10 @@ body{
   padding:15px 0;
 }
 
+.navbar-left img {
+  height: 150px;
+}
+
 .brand{
   font-family:
     'Darumadrop One',
